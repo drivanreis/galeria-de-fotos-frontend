@@ -20,6 +20,8 @@ if git rev-parse --verify gh-pages >/dev/null 2>&1; then
     echo "Branch apagada!"
 fi
 
+sleep 5
+
 echo "Limpa o cache do git"
 git gc --prune=now
 git remote prune origin
@@ -33,8 +35,11 @@ TIMESTAMP=$(get_timestamp)
 git commit -m "Nova pasta dist $TIMESTAMP"
 git push origin main
 
-echo "Aguardando 500 segundos..."
-sleep 500
+echo "Aguardando 10 segundos... para dar tempo do GitHub atualizar"
+sleep 10
 
 echo "Copia o conteudo da pasta dist para a branch gh-pages"
 git subtree push --prefix dist origin gh-pages
+
+echo "Aguardando! No minimo 15 segundos... para dar tempo do GitHub atualizar"
+sleep 15
