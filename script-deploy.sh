@@ -1,21 +1,24 @@
-# ../script-deploy.sh
+#!/bin/bash
 
 # Abort on errors
 set -e
 
 # Função para obter o timestamp formatado
 get_timestamp() {
-    echo "$(date +'%H:%M')"
+    date +'%H:%M'
 }
 
-echo "Apaga a branch remota gh-pages"
-#git push origin --delete gh-pages
-
 echo "Excluindo a pasta dist local"
-rm -rf dist
+if [ -d dist ]; then
+    rm -rf dist
+fi
 
-echo "Apaga a pasta dist remota do repositorio"
-#git rm -r dist
+echo "Verifica se a branch gh-pages existe"
+if git rev-parse --verify gh-pages >/dev/null 2>&1; then
+    echo "Apagando branch..."
+    git push origin --delete gh-pages || true
+    echo "Branch apagada!"
+fi
 
 echo "Limpa o cache do git"
 git gc --prune=now
@@ -24,13 +27,14 @@ git remote prune origin
 echo "Criar a pasta dist local"
 npm run build
 
-echo "Cria a nova pasta dist remota no repositorio"
+echo "Adiciona e faz commit da nova pasta dist remota no repositorio"
 git add .
-git commit -m "Nova pasta dist $(get_timestamp())"
+TIMESTAMP=$(get_timestamp)
+git commit -m "Nova pasta dist $TIMESTAMP"
+git push origin main
 
 echo "Aguardando 500 segundos..."
 sleep 500
 
 echo "Copia o conteudo da pasta dist para a branch gh-pages"
 git subtree push --prefix dist origin gh-pages
-

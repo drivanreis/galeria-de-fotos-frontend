@@ -6,12 +6,14 @@ import getBackendURL from '../utils/env';
 
 const backEndURL = getBackendURL();
 
+const backEndUrlFotos = `${backEndURL}/photos`;
+
 const PhotoGallery: React.FC = () => {
   const [photos, setPhotos] = useState<string[]>([]);
 
   const fetchPhotos = async () => {
     try {
-      const response = await axios.get<string[]>(`${backEndURL}/photos`);
+      const response = await axios.get<string[]>(backEndUrlFotos);
       setPhotos(response.data);
     } catch (error) {
       console.log('Erro ao buscar fotos:', error);
@@ -24,13 +26,13 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <div className="photo-gallery">
-      {photos.map((photo, index) => (
+    {photos.map((photo, index) => (
         <img
-          key={index}
-          src={photo} // Aqui estamos usando a URL completa retornada pelo backend
-          alt={`Foto ${index + 1}`}
+        key={index}
+        src={`${backEndUrlFotos}/${photo}`}
+        alt={`Foto ${index + 1}`}
         />
-      ))}
+    ))}
     </div>
   );
 };

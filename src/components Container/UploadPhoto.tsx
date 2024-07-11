@@ -21,18 +21,11 @@ const UploadPhoto: React.FC = () => {
     formData.append('photo', file);
 
     try {
-      const response = await axios.post(`${backEndURL}/upload`, formData, {
+      await axios.post(`${backEndURL}/upload`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
       });
-
-      // Verifica se a resposta contém a URL da imagem
-      if (response.data && response.data.url) {
-        alert(`Imagem enviada com sucesso!\nURL: ${response.data.url}`);
-        console.log('URL da imagem enviada:', response.data.url);
-      }
-
       window.location.reload();
     } catch (error) {
       console.error('Erro ao carregar a foto:', error);
