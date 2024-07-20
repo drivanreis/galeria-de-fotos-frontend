@@ -12,9 +12,15 @@ const PhotoGallery: React.FC = () => {
   const fetchPhotos = async () => {
     try {
       const response = await axios.get<string[]>(`${backEndURL}/photos`);
-      setPhotos(response.data);
+      if (Array.isArray(response.data)) {
+        setPhotos(response.data);
+      } else {
+        console.error('A resposta não é um array:', response.data);
+        setPhotos([]); // ou uma ação apropriada
+      }
     } catch (error) {
       console.log('Erro ao buscar fotos:', error);
+      setPhotos([]); // ou uma ação apropriada
     }
   };
 
