@@ -8,19 +8,20 @@ const backEndURL = getBackendURL();
 
 const PhotoGallery: React.FC = () => {
   const [photos, setPhotos] = useState<string[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const fetchPhotos = async () => {
     try {
       const response = await axios.get<string[]>(`${backEndURL}/photos`);
+      
       if (Array.isArray(response.data)) {
         setPhotos(response.data);
+        setError(null);
       } else {
-        console.error('A resposta não é um array:', response.data);
-        setPhotos([]); // ou uma ação apropriada
+        setError('Resposta inesperada do servidor. A resposta não é um array.');
       }
     } catch (error) {
-      console.log('Erro ao buscar fotos:', error);
-      setPhotos([]); // ou uma ação apropriada
+      setError('Erro ao buscar fotos: ' + (error as Error).message);
     }
   };
 
@@ -30,13 +31,18 @@ const PhotoGallery: React.FC = () => {
 
   return (
     <div className="photo-gallery">
-      {photos.map((photo, index) => (
-        <img
-          key={index}
-          src={photo} // Aqui estamos usando a URL completa retornada pelo backend
-          alt={`Foto ${index + 1}`}
-        />
-      ))}
+      {error && <p>{error}</p>}
+      {photos.length > 0 ? (
+        photos.map((photo, index) => (
+          <img
+            key={index}
+            src={photo} // Aqui estamos usando a URL completa retornada pelo backend
+            alt={`Foto ${index + 1}`}
+          />
+        ))
+      ) : (
+        <p>Nenhuma foto encontrada.</p>
+      )}
     </div>
   );
 };
