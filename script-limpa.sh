@@ -21,4 +21,4 @@ echo "Limpeza Concluída !!!"
 # npm run build
 
 echo "Iniciando o Docker Compose"
-# docker-compose up -d --build
+docker-compose up -d --build

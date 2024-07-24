@@ -8,7 +8,7 @@ services:
     ports:
      - "3000:3000"
     environment:
-     - VITE_BACKEND_URL=http://189.71.214.150:3001
+     - VITE_BACKEND_URL=https://orgiy71zxj.execute-api.us-east-1.amazonaws.com/
     working_dir: /app
     volumes: 
     - ./src:/app/src
