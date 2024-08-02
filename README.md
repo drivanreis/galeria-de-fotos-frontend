@@ -26,3 +26,10 @@ Utilização da biblioteca Axios para comunicação com o backend.
 Implementação de High-Order Functions (HOFs) e hooks em React.
 ✅ Conclusão
 Apesar dos desafios encontrados, o projeto foi uma excelente oportunidade para consolidar conhecimentos e explorar novas tecnologias. Continuarei buscando soluções para tornar a aplicação completa e acessível para os usuários.
+
+🔗 Links Úteis
+Acesse o projeto
+Repositório do Backend (inserir link)
+🙏 Agradecimentos
+Trybe, GitHub Pages, AWS, Cloudinary
+Daniel Arruda pelo suporte em infraestrutura
