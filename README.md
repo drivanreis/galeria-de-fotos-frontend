@@ -1,28 +1,28 @@
 Projeto: Galeria de Fotos Fullstack
-Objetivo
+🎯 Objetivo
 O objetivo deste projeto é revisar e consolidar tudo o que aprendi na Trybe, além de explorar novos recursos e tecnologias.
 
-Estrutura do Projeto
-Para manter um fluxo de desenvolvimento saudável e organizado, o projeto foi dividido em dois repositórios:
+📂 Estrutura do Projeto
+O projeto é dividido em dois repositórios:
 
 Galeria de Fotos Frontend: Desenvolvido em React + Vite com TypeScript.
 Galeria de Fotos Backend: Implementado com Node.js e Python.
-Este repositório que você está visualizando agora é o Galeria de Fotos Frontend.
+Este repositório refere-se ao Galeria de Fotos Frontend.
 
-Desafios e Soluções
+🛠️ Desafios e Soluções
 Implementação Local
-Inicialmente, o desenvolvimento local foi simples, sem a necessidade de um backend robusto. Os arquivos eram gravados diretamente na raiz do projeto. Porém, ao avançar para a fase de contenização, surgiu um problema: o container crescia à medida que mais uploads eram feitos, o que não é ideal.
+Inicialmente, o desenvolvimento local foi simples, sem a necessidade de um backend robusto. Os arquivos eram gravados diretamente na raiz do projeto.
 
 Tentativa de Contenização
-Minha primeira abordagem para resolver isso foi dividir a aplicação em dois containers: um para o frontend e outro para armazenamento (storage). A ideia era utilizar uma imagem simples do Linux para o container de storage, permitindo o compartilhamento de uma pasta na rede, enquanto o container do frontend acessaria essa pasta como uma unidade de armazenamento. No entanto, mesmo após configurar Dockerfile, docker-compose e scripts pós-execução, não consegui fazer essa solução funcionar corretamente.
+Ao tentar contenizar, enfrentei um problema com o aumento do tamanho do container devido aos uploads. Minha abordagem foi criar dois containers: um para o frontend e outro para armazenamento. Apesar de configurar corretamente o Dockerfile, docker-compose e scripts pós-execução, a solução não funcionou como esperado.
 
 Solução Alternativa
-Diante das dificuldades, decidi pular a fase de contenização (Etapa "B") e avançar diretamente para a implementação na nuvem (Etapa "C"). Graças a uma boa estruturação do projeto, foi fácil adaptar o código para o ambiente de nuvem, permitindo que a aplicação frontend fosse hospedada no GitHub Pages.
+Diante das dificuldades, decidi avançar para a implementação na nuvem. Graças à boa estruturação do projeto, consegui adaptar o código e hospedar o frontend no GitHub Pages.
 
-Aprendizados
-Durante o desenvolvimento, aprendi e pratiquei várias tecnologias e conceitos, incluindo:
+📚 Aprendizados
+Durante o desenvolvimento, aprendi e pratiquei:
 
 Utilização da biblioteca Axios para comunicação com o backend.
-Implementação de HOFs (High-Order Functions) e hooks em React.
-Conclusão
-Embora tenha encontrado obstáculos ao longo do caminho, o projeto foi uma excelente oportunidade para consolidar conhecimentos e explorar novas tecnologias. Continuarei buscando soluções para tornar a aplicação completa e gratuita para os usuários.
+Implementação de High-Order Functions (HOFs) e hooks em React.
+✅ Conclusão
+Apesar dos desafios encontrados, o projeto foi uma excelente oportunidade para consolidar conhecimentos e explorar novas tecnologias. Continuarei buscando soluções para tornar a aplicação completa e acessível para os usuários.
