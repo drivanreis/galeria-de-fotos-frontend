@@ -1,30 +1,28 @@
-# React + TypeScript + Vite
+Projeto: Galeria de Fotos Fullstack
+Objetivo
+O objetivo deste projeto é revisar e consolidar tudo o que aprendi na Trybe, além de explorar novos recursos e tecnologias.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Estrutura do Projeto
+Para manter um fluxo de desenvolvimento saudável e organizado, o projeto foi dividido em dois repositórios:
 
-Currently, two official plugins are available:
+Galeria de Fotos Frontend: Desenvolvido em React + Vite com TypeScript.
+Galeria de Fotos Backend: Implementado com Node.js e Python.
+Este repositório que você está visualizando agora é o Galeria de Fotos Frontend.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Desafios e Soluções
+Implementação Local
+Inicialmente, o desenvolvimento local foi simples, sem a necessidade de um backend robusto. Os arquivos eram gravados diretamente na raiz do projeto. Porém, ao avançar para a fase de contenização, surgiu um problema: o container crescia à medida que mais uploads eram feitos, o que não é ideal.
 
-## Expanding the ESLint configuration
+Tentativa de Contenização
+Minha primeira abordagem para resolver isso foi dividir a aplicação em dois containers: um para o frontend e outro para armazenamento (storage). A ideia era utilizar uma imagem simples do Linux para o container de storage, permitindo o compartilhamento de uma pasta na rede, enquanto o container do frontend acessaria essa pasta como uma unidade de armazenamento. No entanto, mesmo após configurar Dockerfile, docker-compose e scripts pós-execução, não consegui fazer essa solução funcionar corretamente.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Solução Alternativa
+Diante das dificuldades, decidi pular a fase de contenização (Etapa "B") e avançar diretamente para a implementação na nuvem (Etapa "C"). Graças a uma boa estruturação do projeto, foi fácil adaptar o código para o ambiente de nuvem, permitindo que a aplicação frontend fosse hospedada no GitHub Pages.
 
-- Configure the top-level `parserOptions` property like this:
+Aprendizados
+Durante o desenvolvimento, aprendi e pratiquei várias tecnologias e conceitos, incluindo:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+Utilização da biblioteca Axios para comunicação com o backend.
+Implementação de HOFs (High-Order Functions) e hooks em React.
+Conclusão
+Embora tenha encontrado obstáculos ao longo do caminho, o projeto foi uma excelente oportunidade para consolidar conhecimentos e explorar novas tecnologias. Continuarei buscando soluções para tornar a aplicação completa e gratuita para os usuários.
