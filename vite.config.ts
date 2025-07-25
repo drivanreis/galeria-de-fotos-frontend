@@ -9,5 +9,6 @@ export default defineConfig({
     port: 3000,
     host: true,
   },
-  base: '/',
+  // base: '/', // Para ser usado com dominio personalizado
+  base: '/galeria-de-fotos-frontend/', // Para ser usado com GitHub Pages
 });

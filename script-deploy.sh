@@ -43,3 +43,6 @@ git subtree push --prefix dist origin gh-pages
 
 echo "Aguardando! No minimo 15 segundos... para dar tempo do GitHub atualizar"
 sleep 15
+
+echo "✅ Deploy finalizado! Acesse:"
+echo "👉 https://drivanreis.github.io/galeria-de-fotos-frontend/"
